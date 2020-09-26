@@ -1,0 +1,9 @@
+Package: com.nahtedetihw.watchfacewidget
+Name: WatchFaceWidget
+Depends: mobilesubstrate, com.dgh0st.hswidgets, com.spark.libsparkcolourpicker
+Version: 1.2
+Architecture: iphoneos-arm
+Description: An awesome HSWidgets extension for WatchFace!
+Maintainer: Ethan Whited
+Author: Ethan Whited
+Section: Addons (HSWidgets)
