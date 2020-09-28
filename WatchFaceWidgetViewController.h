@@ -7,6 +7,7 @@
 @property (nonatomic, strong) UIView *square;
 @property (nonatomic, strong) UILabel *hourLabel;
 @property (nonatomic, strong) UILabel *minuteLabel;
+@property (nonatomic, retain) UIVisualEffectView *blurEffectView;
 @end
 
 @interface UIApplication (WatchFaceWidget)

@@ -1,3 +1,4 @@
+#line 1 "WatchFaceWidgetViewController.xm"
 #import "WatchFaceWidgetViewController.h"
 
 static NSMutableDictionary *colorDictionary;
@@ -82,15 +83,15 @@ UIImpactFeedbackGenerator *gen;
 	[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshTime) userInfo:nil repeats:YES];
 
 
-	// Getting integer value from PSSegmentCell for key "hourFormat"
+	
 	NSInteger hourFormatSelected = [widgetOptions[@"hourFormat"] integerValue];
 
-	// Check integer value whether it's 0 or 1
-	if (hourFormatSelected == 0) { // 12 hours format
+	
+	if (hourFormatSelected == 0) { 
 
 		[dateFormatterHour setDateFormat:@"h"];
 
-	}else if (hourFormatSelected == 1) { // 24 hours format
+	}else if (hourFormatSelected == 1) { 
 
 		[dateFormatterHour setDateFormat:@"HH"];
 
@@ -116,17 +117,17 @@ UIImpactFeedbackGenerator *gen;
 
 -(void)refreshTime {
 
-	// Getting integer value from PSSegmentCell for key "hourFormat"
+	
 	NSInteger hourFormatSelected = [widgetOptions[@"hourFormat"] integerValue];
 
-	// Check integer value whether it's 0 or 1
-	if (hourFormatSelected == 0) { // 12 hours format
+	
+	if (hourFormatSelected == 0) { 
 
 		dateFormatterHour = [[NSDateFormatter alloc] init];
 		[dateFormatterHour setDateFormat:@"h"];
 		self.hourLabel.text = [dateFormatterHour stringFromDate:[NSDate date]];
 
-	}else if (hourFormatSelected == 1) { // 24 hours format
+	}else if (hourFormatSelected == 1) { 
 
 		dateFormatterHour = [[NSDateFormatter alloc] init];
 		[dateFormatterHour setDateFormat:@"HH"];
@@ -135,7 +136,7 @@ UIImpactFeedbackGenerator *gen;
 	}
 
 
-	// Minutes
+	
 	NSDateFormatter *dateFormatterMinute = [[NSDateFormatter alloc] init];
 	[dateFormatterMinute setDateFormat:@":mm"];
 	self.minuteLabel.text = [dateFormatterMinute stringFromDate:[NSDate date]];
@@ -223,15 +224,15 @@ UIImpactFeedbackGenerator *gen;
 
 	if ([key isEqualToString:@"hourFormat"]) {
 
-		// Getting integer value from PSSegmentCell for key "hourFormat"
+		
 		NSInteger hourFormatSelected = [widgetOptions[@"hourFormat"] integerValue];
 
-		// Check integer value whether it's 0 or 1
-		if (hourFormatSelected == 0) { // 12 hours format
+		
+		if (hourFormatSelected == 0) { 
 
 			[dateFormatterHour setDateFormat:@"h"];
 
-		} else if (hourFormatSelected == 1){ // 24 hours format
+		} else if (hourFormatSelected == 1){ 
 
 			[dateFormatterHour setDateFormat:@"HH"];
 
@@ -309,7 +310,7 @@ UIImpactFeedbackGenerator *gen;
 
 static void notificationCallback(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
 
-	// Notification for colors
+	
 	colorDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/private/var/mobile/Library/Preferences/com.nahtedetihw.watchfacewidget.color.plist"];
 
 }
@@ -318,7 +319,7 @@ static void notificationCallback(CFNotificationCenterRef center, void *observer,
 @end
 
 
-%ctor {
+static __attribute__((constructor)) void _logosLocalCtor_319290b9(int __unused argc, char __unused **argv, char __unused **envp) {
 
 	notificationCallback(NULL, NULL, NULL, NULL, NULL);
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, notificationCallback, (CFStringRef)nsNotificationString, NULL, CFNotificationSuspensionBehaviorCoalesce);

@@ -1,5 +1,5 @@
 INSTALL_TARGET_PROCESSES = SpringBoard
-TARGET = iphone:clang:13.0:12.0
+TARGET = iphone:clang:13.0:11.0
 ARCHS = arm64 arm64e
 include $(THEOS)/makefiles/common.mk
 
@@ -16,5 +16,7 @@ WatchFaceWidget_LIBRARIES += sparkcolourpicker
 WatchFaceWidget_INSTALL_PATH = /Library/HSWidgets
 WatchFaceWidget_CFLAGS = -fobjc-arc
 
-include $(THEOS_MAKE_PATH)/bundle.mk
+before-stage::
+	find . -name ".DS\_Store" -delete
 
+include $(THEOS_MAKE_PATH)/bundle.mk
